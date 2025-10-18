@@ -1,4 +1,6 @@
 name: VictorHugo
+author: AegisLunarian
+website: lunarian.fr
 version: '1.0.0'
 main: fr.aegislunarian.victorhugo.Main
 api-version: '1.21'
