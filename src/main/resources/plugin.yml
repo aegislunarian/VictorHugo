@@ -1,6 +1,7 @@
 name: VictorHugo
 author: AegisLunarian
 website: lunarian.fr
+load: STARTUP
 version: '1.0.0'
 main: fr.aegislunarian.victorhugo.Main
 api-version: '1.21'
