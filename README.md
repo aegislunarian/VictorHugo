@@ -1,8 +1,9 @@
-## Prépa Victor Hugo : Serveur Minecraft
+<h1 align="center">Projet Victor Hugo</h1>
+<em><h5 align="center">(Créer pour Spigot)</h5></em>
 
-Ceci est le plugin CORE du serveur Minecraft des prépa 2025-2026 du lycée Victor Hugo à Besançon.
+<p align="center">Ceci est le plugin principal du serveur Minecraft des prépa 2025-2026 du lycée Victor Hugo à Besançon.</p>
 
 ## Fonctionnalités
 
-1. Gérer l'accès au serveur.
-2. Ajouter des commandes utiles au jeu et à la communication.
+* 🔒 Gérer l'accès au serveur.
+* 💬 Ajouter des commandes utiles au jeu et à la communication.
