@@ -5,7 +5,6 @@ import org.bukkit.entity.Player;
 public class Account
 {
     final Player player;
-    boolean online;
 
     Rank rank;
 
