@@ -30,7 +30,8 @@ public class NetworkEvents implements Listener
     {
         Player player = event.getPlayer();
         Account playerAccount = main.getAccountManager().getAccount(player.getUniqueId());
-    }
 
+        playerAccount.setLastKnownLocation(player.getLocation());
+    }
 
 }

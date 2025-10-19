@@ -1,8 +1,8 @@
 package fr.aegislunarian.victorhugo;
 
+import fr.aegislunarian.victorhugo.listeners.ChatEvents;
 import fr.aegislunarian.victorhugo.manager.AccountManager;
 import fr.aegislunarian.victorhugo.manager.ListenerManager;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin
@@ -30,6 +30,8 @@ public final class Main extends JavaPlugin
 
         accountManager = new AccountManager(INSTANCE);
         listenerManager = new ListenerManager(INSTANCE);
+
+        listenerManager.registerListener(ChatEvents.class);
     }
 
     /**
