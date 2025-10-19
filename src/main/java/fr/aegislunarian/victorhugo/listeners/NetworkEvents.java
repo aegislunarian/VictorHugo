@@ -2,6 +2,7 @@ package fr.aegislunarian.victorhugo.listeners;
 
 import fr.aegislunarian.victorhugo.Main;
 import fr.aegislunarian.victorhugo.core.player.Account;
+import fr.aegislunarian.victorhugo.utils.LogUtility;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,6 +23,7 @@ public class NetworkEvents implements Listener
         Account playerAccount = main.getAccountManager().createOrLoadAccount(player.getUniqueId());
     }
 
+
     /**
      * Logique lorsque le joueur quitte la partie.
      */
@@ -29,9 +31,16 @@ public class NetworkEvents implements Listener
     public void onPlayerQuit(PlayerQuitEvent event)
     {
         Player player = event.getPlayer();
-        Account playerAccount = main.getAccountManager().getAccount(player.getUniqueId());
 
-        playerAccount.setLastKnownLocation(player.getLocation());
+        saveLocation(player);
+    }
+
+    /**
+     * Fonction pour sauvegarder la localisation du joueur.
+     */
+    public static void saveLocation(Player player)
+    {
+        if(!player.getWorld().getName().equals("loggin")) Main.get().getAccountManager().getAccount(player.getUniqueId()).setLastKnownLocation(player.getLocation());
     }
 
 }

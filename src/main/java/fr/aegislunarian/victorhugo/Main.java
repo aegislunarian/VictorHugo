@@ -1,8 +1,11 @@
 package fr.aegislunarian.victorhugo;
 
+import fr.aegislunarian.victorhugo.commands.RankCommand;
 import fr.aegislunarian.victorhugo.listeners.ChatEvents;
+import fr.aegislunarian.victorhugo.listeners.NetworkEvents;
 import fr.aegislunarian.victorhugo.manager.AccountManager;
 import fr.aegislunarian.victorhugo.manager.ListenerManager;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin
@@ -32,6 +35,8 @@ public final class Main extends JavaPlugin
         listenerManager = new ListenerManager(INSTANCE);
 
         listenerManager.registerListener(ChatEvents.class);
+
+        getCommand("rank").setExecutor(new RankCommand());
     }
 
     /**
@@ -39,6 +44,7 @@ public final class Main extends JavaPlugin
      */
     void disable()
     {
+        Bukkit.getOnlinePlayers().forEach(NetworkEvents::saveLocation);
         accountManager.saveAllAccounts();
     }
 

@@ -1,7 +1,6 @@
 package fr.aegislunarian.victorhugo.manager;
 
 import fr.aegislunarian.victorhugo.listeners.NetworkEvents;
-import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

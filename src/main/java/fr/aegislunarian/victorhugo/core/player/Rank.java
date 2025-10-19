@@ -46,4 +46,27 @@ public enum Rank
     {
         return getPrefix().length();
     }
+
+    /**
+     * Récupère la couleur du rôle.
+     * @return La couleur du rôle.
+     */
+    public ChatColor getPrefixColor()
+    {
+        return prefixColor;
+    }
+
+    /**
+     * Permet de vérifier si un rang existe.
+     * @param name Le rang.
+     * @return 'true' si le rang existe, 'false' sinon.
+     */
+    public static boolean exists(String name) {
+        for (Rank rank : values()) {
+            if (rank.name().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

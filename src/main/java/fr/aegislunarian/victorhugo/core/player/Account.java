@@ -10,9 +10,12 @@ public class Account
 {
     transient FileConfiguration config = Main.get().getConfig();
 
-    final UUID uniqueID;
-    Rank rank;
+    final UUID uniqueId;
 
+    Rank rank;
+    boolean moderator;
+
+    private String worldName;
     private double lastX;
     private double lastY;
     private double lastZ;
@@ -21,14 +24,16 @@ public class Account
 
     /**
      * Classe 'Account' : permet de gérer le compte des joueurs.
-     * @param uniqueID L"UUID du joueur en question.
+     * @param uniqueId L"UUID du joueur en question.
      */
-    public Account(UUID uniqueID)
+    public Account(UUID uniqueId)
     {
-        this.uniqueID = uniqueID;
+        this.uniqueId = uniqueId;
 
         rank = Rank.DEFAULT;
+        moderator = false;
 
+        worldName = "world";
         lastX = config.getDouble("spawn.x");
         lastY = config.getDouble("spawn.y");
         lastZ = config.getDouble("spawn.z");
@@ -63,7 +68,7 @@ public class Account
      */
     public UUID getUniqueId()
     {
-        return uniqueID;
+        return uniqueId;
     }
 
     /**
@@ -73,7 +78,7 @@ public class Account
     public Location getLastKnownLocation() {
         if (cachedLocation == null) {
             cachedLocation = new Location(
-                    Bukkit.getWorld("world"),
+                    Bukkit.getWorld(worldName),
                     lastX, lastY, lastZ
             );
         }
@@ -87,10 +92,21 @@ public class Account
     public void setLastKnownLocation(Location location) {
         if (location == null) return;
 
+        this.worldName = location.getWorld().getName();
         this.lastX = location.getX();
         this.lastY = location.getY();
         this.lastZ = location.getZ();
 
         this.cachedLocation = location;
+    }
+
+    public boolean isModerator()
+    {
+        return moderator;
+    }
+
+    public void setModerator(boolean moderator)
+    {
+        this.moderator = moderator;
     }
 }

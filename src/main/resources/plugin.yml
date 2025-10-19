@@ -5,3 +5,7 @@ load: STARTUP
 version: '1.0.0'
 main: fr.aegislunarian.victorhugo.Main
 api-version: '1.21'
+commands:
+  rank:
+    aliases: [rang, gr]
+    description: Commande relative à la gestion de rangs.

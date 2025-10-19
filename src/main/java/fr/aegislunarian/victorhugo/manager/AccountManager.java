@@ -3,6 +3,8 @@ package fr.aegislunarian.victorhugo.manager;
 import com.google.gson.JsonSyntaxException;
 import fr.aegislunarian.victorhugo.core.player.Account;
 import fr.aegislunarian.victorhugo.utils.JsonHandler;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -125,5 +127,10 @@ public class AccountManager
     public Account getAccount(UUID uniqueID)
     {
         return accounts.get(uniqueID);
+    }
+
+    public boolean hasAccount(OfflinePlayer player)
+    {
+        return accounts.containsKey(player.getUniqueId());
     }
 }
