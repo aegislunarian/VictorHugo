@@ -38,7 +38,7 @@ public enum Rank
     }
 
     /**
-     * Cette fonction permet de connaitre le nombre de caractères dans le préfixe détintif.
+     * Cette fonction permet de connaitre le nombre de caractères dans le préfixe définitif.
      * @return le nombre de caractères du préfixe définitif.
      */
     public int getPrefixLength()
