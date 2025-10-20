@@ -30,7 +30,6 @@ public class Account
 
     private transient Location cachedLocation;
 
-    private transient boolean moderatorStatus;
     private transient String lastMessenger;
 
     /**
@@ -54,7 +53,6 @@ public class Account
                 lastX, lastY, lastZ
         ));
 
-        moderatorStatus = false;
         lastMessenger = null;
     }
 
@@ -130,24 +128,6 @@ public class Account
     public void setModerator(boolean moderator)
     {
         this.moderator = moderator;
-    }
-
-    /**
-     * Définit si le joueur doit être en mode modération.
-     * @param moderatorStatus 'true' si le joueur doit être en mode modération,'false' sinon.
-     */
-    public void setModeratorStatus(boolean moderatorStatus)
-    {
-        this.moderatorStatus = moderatorStatus;
-    }
-
-    /**
-     * Permet de savoir si le joueur est en mode modération.
-     * @return 'true' si le joueur est en mode modération, 'false' sinon.
-     */
-    public boolean isModeratorStatus()
-    {
-        return moderatorStatus;
     }
 
     /**
