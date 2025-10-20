@@ -1,6 +1,8 @@
 package fr.aegislunarian.victorhugo;
 
 import fr.aegislunarian.victorhugo.commands.RankCommand;
+import fr.aegislunarian.victorhugo.commands.messages.AwnserMessageCommand;
+import fr.aegislunarian.victorhugo.commands.messages.InitiateMessageCommand;
 import fr.aegislunarian.victorhugo.listeners.ChatEvents;
 import fr.aegislunarian.victorhugo.listeners.NetworkEvents;
 import fr.aegislunarian.victorhugo.manager.AccountManager;
@@ -37,6 +39,8 @@ public final class Main extends JavaPlugin
         listenerManager.registerListener(ChatEvents.class);
 
         getCommand("rank").setExecutor(new RankCommand());
+        getCommand("msg").setExecutor(new InitiateMessageCommand());
+        getCommand("r").setExecutor(new AwnserMessageCommand());
     }
 
     /**

@@ -1,3 +1,11 @@
+//   ___      ___ ___  ________ _________  ________  ________          ___  ___  ___  ___  ________  ________
+//  |\  \    /  /|\  \|\   ____\\___   ___\\   __  \|\   __  \        |\  \|\  \|\  \|\  \|\   ____\|\   __  \
+//  \ \  \  /  / | \  \ \  \___\|___ \  \_\ \  \|\  \ \  \|\  \       \ \  \\\  \ \  \\\  \ \  \___|\ \  \|\  \
+//   \ \  \/  / / \ \  \ \  \       \ \  \ \ \  \\\  \ \   _  _\       \ \   __  \ \  \\\  \ \  \  __\ \  \\\  \
+//    \ \    / /   \ \  \ \  \____   \ \  \ \ \  \\\  \ \  \\  \|       \ \  \ \  \ \  \\\  \ \  \|\  \ \  \\\  \
+//     \ \__/ /     \ \__\ \_______\  \ \__\ \ \_______\ \__\\ _\        \ \__\ \__\ \_______\ \_______\ \_______\
+//      \|__|/       \|__|\|_______|   \|__|  \|_______|\|__|\|__|        \|__|\|__|\|_______|\|_______|\|_______|
+
 package fr.aegislunarian.victorhugo.commands;
 
 import fr.aegislunarian.victorhugo.Main;
@@ -23,6 +31,7 @@ public class RankCommand implements CommandExecutor, TabCompleter
     AccountManager accountManager = Main.get().getAccountManager();
     /**
      * Commande relative aux rangs.
+     * Usage /rank <set|get|list> <set/get : nom du joueur> <set : rang>
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
@@ -87,7 +96,7 @@ public class RankCommand implements CommandExecutor, TabCompleter
                             sender.sendMessage(MessageTemplate.adminMessage("Le joueur §6" + target.getName() + " hérite du rang " + targetAccount.getRank().getPrefix() + "§e!"));
                             if(target.isOnline())
                             {
-                                Bukkit.getPlayer(target.getName()).sendMessage(MessageTemplate.adminMessage("§aVotre rang est désormais " + targetAccount.getRank().getPrefix() + " §a!"));
+                                Bukkit.getPlayer(target.getName()).sendMessage(MessageTemplate.adminMessage("§aVotre rang est désormais " + targetAccount.getRank().getPrefix() + "§a!"));
                             }
                             return true;
                         }

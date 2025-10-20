@@ -1,3 +1,11 @@
+#   ___      ___ ___  ________ _________  ________  ________          ___  ___  ___  ___  ________  ________
+#  |\  \    /  /|\  \|\   ____\\___   ___\\   __  \|\   __  \        |\  \|\  \|\  \|\  \|\   ____\|\   __  \
+#  \ \  \  /  / | \  \ \  \___\|___ \  \_\ \  \|\  \ \  \|\  \       \ \  \\\  \ \  \\\  \ \  \___|\ \  \|\  \
+#   \ \  \/  / / \ \  \ \  \       \ \  \ \ \  \\\  \ \   _  _\       \ \   __  \ \  \\\  \ \  \  __\ \  \\\  \
+#    \ \    / /   \ \  \ \  \____   \ \  \ \ \  \\\  \ \  \\  \|       \ \  \ \  \ \  \\\  \ \  \|\  \ \  \\\  \
+#     \ \__/ /     \ \__\ \_______\  \ \__\ \ \_______\ \__\\ _\        \ \__\ \__\ \_______\ \_______\ \_______\
+#      \|__|/       \|__|\|_______|   \|__|  \|_______|\|__|\|__|        \|__|\|__|\|_______|\|_______|\|_______|
+
 name: VictorHugo
 author: AegisLunarian
 website: lunarian.fr
@@ -9,3 +17,9 @@ commands:
   rank:
     aliases: [rang, gr]
     description: Commande relative à la gestion de rangs.
+  msg:
+    aliases: [pm, dm, message]
+    description: Commande relative à l'envoi de messages.
+  r:
+    aliases: [repondre, respond, awnser, rep]
+    description: Commande relative à la réponse aux messages.
