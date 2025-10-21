@@ -11,6 +11,7 @@ package fr.aegislunarian.victorhugo.listeners;
 import fr.aegislunarian.victorhugo.Main;
 import fr.aegislunarian.victorhugo.core.player.Account;
 import fr.aegislunarian.victorhugo.utils.LogUtility;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -37,7 +38,7 @@ public class ChatEvents implements Listener
             message = message.replace(word, "*".repeat(word.length()));
         }
 
-        event.setMessage(message);
+        event.setMessage(playerAccount.isModerator() ? ChatColor.translateAlternateColorCodes('&', message) : message);
 
         event.setFormat(playerAccount.getRank().getPrefix() + "%s §8» §r%s");
     }

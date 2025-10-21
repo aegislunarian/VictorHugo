@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public class Account
 {
-    transient FileConfiguration config = Main.get().getConfig();
+    transient FileConfiguration configuration = Main.get().getConfig();
 
     final UUID uniqueId;
 
@@ -44,9 +44,9 @@ public class Account
         moderator = false;
 
         worldName = "world";
-        lastX = config.getDouble("spawn.x");
-        lastY = config.getDouble("spawn.y");
-        lastZ = config.getDouble("spawn.z");
+        lastX = configuration.getDouble("spawn.x");
+        lastY = configuration.getDouble("spawn.y");
+        lastZ = configuration.getDouble("spawn.z");
 
         setLastKnownLocation(new Location(
                 Bukkit.getWorld("world"),

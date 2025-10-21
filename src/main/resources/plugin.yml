@@ -10,7 +10,7 @@ name: VictorHugo
 author: AegisLunarian
 website: lunarian.fr
 load: STARTUP
-version: '1.0.0'
+version: '1.0.1'
 main: fr.aegislunarian.victorhugo.Main
 api-version: '1.21'
 commands:
@@ -23,3 +23,6 @@ commands:
   r:
     aliases: [repondre, respond, awnser, rep]
     description: Commande relative à la réponse aux messages.
+  mod:
+    aliases: [setmod, addmod, moderateur]
+    description: Commande relative à la gestion des modérateurs.

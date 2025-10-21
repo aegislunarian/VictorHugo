@@ -15,6 +15,10 @@ public class LogUtility
 {
     public static String prefix = Main.get().getConfig().getString("admin_prefix");
 
+    /**
+     * Permet de log un message. Cette fonction sera retirée.
+     * @param message Le message à afficher.
+     */
     public static void log(String message)
     {
         Bukkit.getServer().getConsoleSender().sendMessage(prefix + message);

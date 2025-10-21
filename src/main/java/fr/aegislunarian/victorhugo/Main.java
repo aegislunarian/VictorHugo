@@ -8,6 +8,7 @@
 
 package fr.aegislunarian.victorhugo;
 
+import fr.aegislunarian.victorhugo.commands.ModCommand;
 import fr.aegislunarian.victorhugo.commands.RankCommand;
 import fr.aegislunarian.victorhugo.commands.messages.AwnserMessageCommand;
 import fr.aegislunarian.victorhugo.commands.messages.InitiateMessageCommand;
@@ -15,6 +16,7 @@ import fr.aegislunarian.victorhugo.listeners.ChatEvents;
 import fr.aegislunarian.victorhugo.listeners.NetworkEvents;
 import fr.aegislunarian.victorhugo.manager.AccountManager;
 import fr.aegislunarian.victorhugo.manager.ListenerManager;
+import fr.aegislunarian.victorhugo.utils.TitleUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -41,6 +43,8 @@ public final class Main extends JavaPlugin
         this.saveDefaultConfig();
         this.reloadConfig();
 
+        TitleUtils.init(INSTANCE);
+
         accountManager = new AccountManager(INSTANCE);
         listenerManager = new ListenerManager(INSTANCE);
 
@@ -49,6 +53,7 @@ public final class Main extends JavaPlugin
         getCommand("rank").setExecutor(new RankCommand());
         getCommand("msg").setExecutor(new InitiateMessageCommand());
         getCommand("r").setExecutor(new AwnserMessageCommand());
+        getCommand("mod").setExecutor(new ModCommand());
     }
 
     /**

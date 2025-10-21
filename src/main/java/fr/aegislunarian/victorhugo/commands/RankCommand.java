@@ -101,11 +101,11 @@ public class RankCommand implements CommandExecutor, TabCompleter
                             return true;
                         }
 
-                        sender.sendMessage(MessageTemplate.adminErrorMessage("Le rang '" + args[2].toUpperCase() + "' n'existe pas !"));
+                        sender.sendMessage(MessageTemplate.adminErrorMessage("Le rang '" + args[2].toUpperCase() + "' n'existe pas."));
                         return false;
                     }
 
-                    sender.sendMessage(MessageTemplate.adminErrorMessage("Le joueur '" + args[1] + "' n'existe pas ou n'est pas connecté !"));
+                    sender.sendMessage(MessageTemplate.adminErrorMessage("Le joueur '" + args[1] + "' n'existe pas."));
                     return false;
                 }
 
@@ -140,7 +140,7 @@ public class RankCommand implements CommandExecutor, TabCompleter
                         return true;
                     }
 
-                    sender.sendMessage(MessageTemplate.adminErrorMessage("Le joueur '" + args[1] + "' n'existe pas ou n'a pas de compte !"));
+                    sender.sendMessage(MessageTemplate.adminErrorMessage("Le joueur '" + args[1] + "' n'existe pas."));
                     return false;
                 }
 
