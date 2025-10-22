@@ -19,6 +19,7 @@ public class Account
     transient FileConfiguration configuration = Main.get().getConfig();
 
     final UUID uniqueId;
+    private String hashedPassword;
 
     Rank rank;
     boolean moderator;
@@ -39,14 +40,15 @@ public class Account
     public Account(UUID uniqueId)
     {
         this.uniqueId = uniqueId;
+        hashedPassword = "unset";
 
         rank = Rank.DEFAULT;
         moderator = false;
 
         worldName = "world";
-        lastX = configuration.getDouble("spawn.x");
-        lastY = configuration.getDouble("spawn.y");
-        lastZ = configuration.getDouble("spawn.z");
+        lastX = Bukkit.getWorld(worldName).getSpawnLocation().getX();
+        lastY = Bukkit.getWorld(worldName).getSpawnLocation().getY();
+        lastZ = Bukkit.getWorld(worldName).getSpawnLocation().getZ();
 
         setLastKnownLocation(new Location(
                 Bukkit.getWorld("world"),
@@ -141,10 +143,28 @@ public class Account
 
     /**
      * Définit le pseudo du dernier joueur qui a envoyé un message au joueur.
-     * @param lastMessenger le pseudo du dernier joueur.
+     * @param lastMessenger Le pseudo du dernier joueur.
      */
     public void setLastMessenger(String lastMessenger)
     {
         this.lastMessenger = lastMessenger;
+    }
+
+    /**
+     * Permet de récupérer le mot de passe hashé du joueur.
+     * @return Le mot de passe hashé du joueur.
+     */
+    public String getHashedPassword()
+    {
+        return hashedPassword;
+    }
+
+    /**
+     * Définit le mot de passe hashé du joueur.
+     * @param hashedPassword Le mot de passe hashé du joueur.
+     */
+    public void setHashedPassword(String hashedPassword)
+    {
+        this.hashedPassword = hashedPassword;
     }
 }

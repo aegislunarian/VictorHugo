@@ -30,6 +30,11 @@ public class ChatEvents implements Listener
         Player player = event.getPlayer();
         Account playerAccount = main.getAccountManager().getAccount(player.getUniqueId());
 
+        if(!main.getAuthManager().isLoggedIn(player))
+        {
+            return;
+        }
+
         String message = event.getMessage();
 
         for (String word : bannedWords)

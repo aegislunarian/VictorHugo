@@ -26,3 +26,9 @@ commands:
   mod:
     aliases: [setmod, addmod, moderateur]
     description: Commande relative à la gestion des modérateurs.
+  register:
+    description: Commande relative à l'inscription au serveur.
+    aliases: [reg, signup]
+  login:
+    description: Commande relative à la connexion au serveur.
+    aliases: [l, signin]

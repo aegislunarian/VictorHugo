@@ -12,7 +12,10 @@ import fr.aegislunarian.victorhugo.Main;
 import fr.aegislunarian.victorhugo.core.player.Account;
 import fr.aegislunarian.victorhugo.utils.MessageTemplate;
 import fr.aegislunarian.victorhugo.utils.TitleUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,7 +35,21 @@ public class NetworkEvents implements Listener
     public void onPlayerJoin(PlayerJoinEvent event)
     {
         Player player = event.getPlayer();
+
+        player.setGameMode(GameMode.ADVENTURE);
+        player.teleport(new Location(Bukkit.getWorld(configuration.getString("spawn.world")), configuration.getDouble("spawn.x"), configuration.getDouble("spawn.y"), configuration.getDouble("spawn.z")));
+
         Account playerAccount = main.getAccountManager().createOrLoadAccount(player.getUniqueId());
+        main.getRankDisplayManager().applyTeam(player);
+
+        if(playerAccount.getHashedPassword().equals("unset"))
+        {
+            player.sendMessage(MessageTemplate.adminMessage("Utilise /register <motDePasse> <verifierMotDePasse> pour te connecter."));
+        }
+        else
+        {
+            player.sendMessage(MessageTemplate.adminMessage("Utilise /login <motDePasse> pour te connecter."));
+        }
 
         String motd = configuration.getString("motd");
 
@@ -57,6 +74,8 @@ public class NetworkEvents implements Listener
         saveLocation(player);
 
         event.setQuitMessage(MessageTemplate.adminMessage(playerAccount.getRank().getPrefix() + player.getName() + (playerAccount.isModerator() ? "§c*" : "") + " §eà quitté la partie !"));
+
+        main.getAuthManager().logOut(player);
     }
 
     /**
@@ -64,7 +83,7 @@ public class NetworkEvents implements Listener
      */
     public static void saveLocation(Player player)
     {
-        if(!player.getWorld().getName().equals("loggin")) Main.get().getAccountManager().getAccount(player.getUniqueId()).setLastKnownLocation(player.getLocation());
+        if(!player.getWorld().getName().equals(Main.get().getConfig().getString("spawn.world"))) Main.get().getAccountManager().getAccount(player.getUniqueId()).setLastKnownLocation(player.getLocation());
     }
 
 }

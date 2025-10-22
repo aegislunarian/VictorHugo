@@ -57,6 +57,8 @@ public class ModCommand implements CommandExecutor, TabCompleter
         boolean isNowModerator = !targetAccount.isModerator();
         targetAccount.setModerator(isNowModerator);
 
+        if(target.isOnline()) Main.get().getRankDisplayManager().updatePlayer((Player) target);
+
         String statusMessage = isNowModerator ? "§apromu" : "§cplus";
         sender.sendMessage(MessageTemplate.adminMessage(
                 "Le joueur §6" + target.getName() + " §e" + (isNowModerator ? "" : "n'") + "est " + statusMessage + " §emodérateur."

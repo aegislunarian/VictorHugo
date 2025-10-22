@@ -136,8 +136,15 @@ public class AccountManager
         return accounts.get(uniqueID);
     }
 
+    /**
+     * Vérifie si le joueur a un compte.
+     * @param player Le joueur.
+     * @return 'true' si le joueur a un compte, 'false' sinon.
+     */
     public boolean hasAccount(OfflinePlayer player)
     {
         return accounts.containsKey(player.getUniqueId());
     }
+
+
 }

@@ -8,6 +8,7 @@
 
 package fr.aegislunarian.victorhugo.manager;
 
+import fr.aegislunarian.victorhugo.listeners.AuthListener;
 import fr.aegislunarian.victorhugo.listeners.NetworkEvents;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -33,6 +34,7 @@ public class ListenerManager
     public void registerEssentialsListeners()
     {
         registerListener(NetworkEvents.class);
+        registerListener(AuthListener.class);
     }
 
     /**

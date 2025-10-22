@@ -44,18 +44,18 @@ public class RankCommand implements CommandExecutor, TabCompleter
             if(args.length == 0)
             {
                 player.sendMessage(
-                """
-                §e======== §c[§fRANG§c] §e========
-                §eNom du joueur : §6%s
-                §eUUID du joueur : §6%s
-                §eRang du joueur : %s%s
-                §e======== §c[§fRANG§c] §e========
-                """.formatted(
-                        player.getName(),
-                        player.getUniqueId(),
-                        playerAccount.getRank().getPrefix(),
-                        playerAccount.isModerator() ? " §c§l[MODÉRATEUR]" : ""
-                ));
+                        """
+                        §e======== §c[§fRANG§c] §e========
+                        §eNom du joueur : §6%s
+                        §eUUID du joueur : §6%s
+                        §eRang du joueur : %s%s
+                        §e======== §c[§fRANG§c] §e========
+                        """.formatted(
+                                player.getName(),
+                                player.getUniqueId(),
+                                playerAccount.getRank().getPrefix(),
+                                playerAccount.isModerator() ? " §c§l[MODÉRATEUR]" : ""
+                        ));
                 return true;
             } else if(!playerAccount.isModerator())
             {
@@ -97,6 +97,7 @@ public class RankCommand implements CommandExecutor, TabCompleter
                             if(target.isOnline())
                             {
                                 Bukkit.getPlayer(target.getName()).sendMessage(MessageTemplate.adminMessage("§aVotre rang est désormais " + targetAccount.getRank().getPrefix() + "§a!"));
+                                Main.get().getRankDisplayManager().updatePlayer((Player) target);
                             }
                             return true;
                         }
