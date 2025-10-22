@@ -80,7 +80,8 @@ public class RankCommand implements CommandExecutor, TabCompleter
                 {
                     OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 
-                    if (!target.hasPlayedBefore() && !target.isOnline()) {
+                    if (!target.hasPlayedBefore() && !target.isOnline())
+                    {
                         sender.sendMessage(MessageTemplate.adminErrorMessage("Le joueur '" + args[1] + "' n'existe pas."));
                         return false;
                     }

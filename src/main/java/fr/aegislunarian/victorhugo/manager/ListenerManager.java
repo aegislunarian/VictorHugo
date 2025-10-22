@@ -41,11 +41,13 @@ public class ListenerManager
      * Enregistrer un listener rapidement en spécifiant une classe.
      * @param listenerClass La classe du listener. À noter : une instance va être générée, inutile de l'initialiser.
      */
-    public void registerListener(Class<? extends Listener> listenerClass) {
+    public void registerListener(Class<? extends Listener> listenerClass)
+    {
         try {
             Listener listener = listenerClass.getDeclaredConstructor().newInstance();
             pluginManager.registerEvents(listener, plugin);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             plugin.getLogger().severe("Impossible de charger le listener : " + listenerClass.getName());
             e.printStackTrace();
         }

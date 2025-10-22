@@ -89,8 +89,10 @@ public class Account
      * Récupère la dernière position connue du joueur.
      * @return La dernière position connue du joueur.
      */
-    public Location getLastKnownLocation() {
-        if (cachedLocation == null) {
+    public Location getLastKnownLocation()
+    {
+        if (cachedLocation == null)
+        {
             cachedLocation = new Location(
                     Bukkit.getWorld(worldName),
                     lastX, lastY, lastZ
@@ -103,7 +105,8 @@ public class Account
      * Définit la dernière position connue du joueur.
      * @param location La dernière position connue du joueur.
      */
-    public void setLastKnownLocation(Location location) {
+    public void setLastKnownLocation(Location location)
+    {
         if (location == null) return;
 
         this.worldName = location.getWorld().getName();

@@ -21,7 +21,7 @@ public class JsonHandler
     /**
      * Sauvegarde un objet en JSON dans un fichier.
      * @param file Le fichier visé.
-     * @param object L'objet à enregistré.
+     * @param object L'objet a enregistré.
      * @throws IOException Si le fichier est introuvable ou si l'écriture échoue.
      */
     public static void saveObject(Path file, Object object) throws IOException

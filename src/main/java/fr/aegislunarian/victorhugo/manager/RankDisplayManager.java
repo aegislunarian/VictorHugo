@@ -44,7 +44,8 @@ public class RankDisplayManager
 
         initRankTeams();
 
-        for (Player player : Bukkit.getOnlinePlayers()) {
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
             applyTeam(player);
         }
     }
@@ -58,7 +59,8 @@ public class RankDisplayManager
         for (Rank rank : Rank.values())
         {
             Team team = board.getTeam(rank.name());
-            if (team == null) {
+            if (team == null)
+            {
                 team = board.registerNewTeam(rank.name());
             }
             team.setPrefix(rank.getPrefix());

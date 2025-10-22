@@ -69,9 +69,12 @@ public enum Rank
      * @param name Le rang.
      * @return 'true' si le rang existe, 'false' sinon.
      */
-    public static boolean exists(String name) {
-        for (Rank rank : values()) {
-            if (rank.name().equalsIgnoreCase(name)) {
+    public static boolean exists(String name)
+    {
+        for (Rank rank : values())
+        {
+            if (rank.name().equalsIgnoreCase(name))
+            {
                 return true;
             }
         }
