@@ -45,13 +45,13 @@ public class Account
         rank = Rank.DEFAULT;
         moderator = false;
 
-        worldName = "world";
+        worldName = configuration.getString("playWorld");
         lastX = Bukkit.getWorld(worldName).getSpawnLocation().getX();
         lastY = Bukkit.getWorld(worldName).getSpawnLocation().getY();
         lastZ = Bukkit.getWorld(worldName).getSpawnLocation().getZ();
 
         setLastKnownLocation(new Location(
-                Bukkit.getWorld("world"),
+                Bukkit.getWorld(worldName),
                 lastX, lastY, lastZ
         ));
 
