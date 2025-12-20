@@ -19,7 +19,7 @@ public enum Rank
     MPSI("MPSI", ChatColor.WHITE),
     PCSI("PCSI", ChatColor.LIGHT_PURPLE),
     BCPST("BCPST", ChatColor.DARK_AQUA),
-    LYCEEN("ENFANT", ChatColor.RED);
+    SECONDE("SECONDE", ChatColor.RED);
 
     final String prefix;
     final ChatColor prefixColor;
